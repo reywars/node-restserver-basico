@@ -17,10 +17,7 @@ const usersGET = async (req = request, res = response) => {
             .limit(Number(limit))
     ]);
 
-    res.json({
-        total,
-        users
-    });
+    res.json({ total, users });
 }
 
 const usersPOST = async (req = request, res = response) => {
@@ -35,9 +32,7 @@ const usersPOST = async (req = request, res = response) => {
     // Guardar en BD
     await user.save();
 
-    res.json({
-        user
-    });
+    res.json({ user });
 }
 const usersPUT = async (req = request, res = response) => {
 
@@ -55,20 +50,14 @@ const usersPUT = async (req = request, res = response) => {
     res.json(user);
 }
 const usersPATCH = (req = request, res = response) => {
-    res.json({
-        msg: 'patch API - usersPATCH'
-    });
+    res.json({ msg: 'patch API - usersPATCH' });
 }
 const usersDELETE = async (req = request, res = response) => {
 
     const { id } = req.params;
     const user = await User.findByIdAndUpdate( id, { status: false });
 
-
-    res.json({
-        id,
-        user
-    });
+    res.json({ user });
 }
 
 
