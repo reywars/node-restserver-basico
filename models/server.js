@@ -18,6 +18,9 @@ class Server {
             uploads:    '/api/uploads',
             user:       '/api/user'
         }
+        this.app = express();
+        this.port = process.env.PORT || 3000;
+        this.usuariosPath = '/api/usuarios';
 
         // Conectar a la base de datos
         this.conectarDB();
