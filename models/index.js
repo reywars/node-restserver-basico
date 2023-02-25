@@ -1,5 +1,4 @@
 
-
 const Categorie = require('./categorie.models');
 const Product = require('./product.models');
 const Role = require('./role.models');

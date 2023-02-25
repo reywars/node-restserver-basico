@@ -9,7 +9,9 @@ const collectionsAllowed = [
     'role',
     'users'
 ];
-
+/**
+ * Buscar usuarios por nombre, email o ID de mongo
+ */
 const searchUsers = async ( term = '', res = response) =>{
     const isMongoID = ObjectId.isValid(term);
 
@@ -31,7 +33,9 @@ const searchUsers = async ( term = '', res = response) =>{
     });
 
 }
-
+/**
+ * Buscar categoria por nombre o ID de mongo
+ */
 const searchCategories = async (term = '', res = response) => {
     const isMongoID = ObjectId.isValid(term);
 
@@ -52,7 +56,9 @@ const searchCategories = async (term = '', res = response) => {
     });
 
 }
-
+/**
+ * Buscar productos por nombre o ID de mongo
+ */
 const searchProducts = async (term = '', res = response) => {
     const isMongoID = ObjectId.isValid(term);
 
@@ -75,7 +81,9 @@ const searchProducts = async (term = '', res = response) => {
     });
 
 }
-
+/**
+ * Buscar una colección
+ */
 const search = (req = request, res = response) => {
 
     const { collection, term } = req.params;

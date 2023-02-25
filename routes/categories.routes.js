@@ -1,17 +1,17 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 
-const { validateJWT, validateFields, isAdminRole } = require('../middlewares');
-
-const { existCategorieByID } = require('../helpers/db-validator');
-
 const { 
     createCategorie, 
     getCategorie, 
     getCategorieByID, 
     deleteCategorie, 
     updateCategorie 
-} = require('../controllers/categories.controllers');
+} = require('../controllers');
+
+const { existCategorieByID } = require('../helpers');
+const { validateJWT, validateFields, isAdminRole } = require('../middlewares');
+
 
 
 const router = Router();

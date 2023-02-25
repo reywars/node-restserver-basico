@@ -1,7 +1,9 @@
 const { request, response } = require("express");
 const { Product } = require("../models");
 
-// Obtener los productos y el usuario que la creo o modificó
+/**
+ * Obtener los productos y el usuario que la creo o modificó 
+*/ 
 const getProducts = async (req = request, res = response) => {
 
     const { limit = 5, from = 0 } = req.query;
@@ -18,8 +20,9 @@ const getProducts = async (req = request, res = response) => {
 
     res.json({ total, products });
 }
-
-// Obtener producto por id y el usuario 
+/**
+ * Obtener producto por id y el usuario 
+ */ 
 const getProductByID = async (req = request, res = response) => {
 
     const { id } = req.params;
@@ -31,8 +34,9 @@ const getProductByID = async (req = request, res = response) => {
                             
     res.json({ product });
 }
-
-// Crear un producto
+/**
+ * Crear un producto
+*/
 const createProduct = async (req = request, res = response) => {
 
     const { status, user, ...body } = req.body;
@@ -58,8 +62,9 @@ const createProduct = async (req = request, res = response) => {
 
     res.status(201).json(product);
 }
-
-// Actualizar un producto
+/**
+ * Actualizar un producto 
+ */
 const updateProduct = async (req = request, res = response) => {
 
     const { id } = req.params;
@@ -75,8 +80,9 @@ const updateProduct = async (req = request, res = response) => {
     res.json(product);
 
 }
-
-// Eliminar una producto
+/**
+ * Eliminar una producto 
+ */
 const deleteProduct = async (req = request, res = response) => {
 
     const { id } = req.params;

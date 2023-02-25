@@ -4,7 +4,9 @@ const bcryptjs = require('bcryptjs');
 
 const User = require('../models/user.models');
 
-
+/**
+ * Obtener la lista de usuarios de la BD
+ */
 const usersGET = async (req = request, res = response) => {
 
     const { limit = 5, from = 0 } = req.query;
@@ -19,7 +21,9 @@ const usersGET = async (req = request, res = response) => {
 
     res.json({ total, users });
 }
-
+/**
+ * Crear un usuario en la BD
+ */
 const usersPOST = async (req = request, res = response) => {
 
     const { name, email, password, role } = req.body;
@@ -34,6 +38,9 @@ const usersPOST = async (req = request, res = response) => {
 
     res.json({ user });
 }
+/**
+ * Actualizar información de un usuarios en la BD
+ */
 const usersPUT = async (req = request, res = response) => {
 
     const { id } = req.params;
@@ -49,9 +56,15 @@ const usersPUT = async (req = request, res = response) => {
 
     res.json(user);
 }
+/**
+ * TODO
+ */
 const usersPATCH = (req = request, res = response) => {
     res.json({ msg: 'patch API - usersPATCH' });
 }
+/**
+ * Eliminar un usuarios de la BD
+ */
 const usersDELETE = async (req = request, res = response) => {
 
     const { id } = req.params;

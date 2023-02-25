@@ -2,13 +2,15 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 
-const { validateFields } = require('../middlewares/validate-fields');
-
-const { login, googleSingIn } = require('../controllers/auth.controllers');
+const { login, googleSingIn } = require('../controllers');
+const { validateFields } = require('../middlewares');
 
 
 const router = Router();
 
+/**
+ * {{url}}/api/auth/login
+ */
 router.post('/login',[
     check('email', 'El correo es obligatorio').isEmail(),
     check('password', 'El password es obligatorio').not().isEmpty(),
